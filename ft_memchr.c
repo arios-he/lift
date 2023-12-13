@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arios-he <arios-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 23:32:29 by arios-he          #+#    #+#             */
-/*   Updated: 2023/12/13 13:53:13 by arios-he         ###   ########.fr       */
+/*   Created: 2023/12/13 13:33:24 by arios-he          #+#    #+#             */
+/*   Updated: 2023/12/13 13:54:16 by arios-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *str1, const char *str2, size_t size)
+void	*ft_memchr(const void *st, int c, size_t size)
 {
-	while (size)
+	unsigned char	*str;
+
+	str = (unsigned char *)st;
+	while (size--)
 	{
-		if (*str1 != *str2 || *str1 == '\0' || *str2 == '\0')
-			return (*(unsigned char *)str1 - *(unsigned char *)str2);
-		str1++;
-		str2++;
-		size--;
+		if (*str == (unsigned char)c)
+			return (str);
+		str++;
 	}
-	return (0);
+	return (NULL);
 }
