@@ -6,7 +6,7 @@
 /*   By: arios-he <arios-he@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:40:40 by arios-he          #+#    #+#             */
-/*   Updated: 2023/12/13 14:20:09 by arios-he         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:30:02 by arios-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_tolower(int c);
+int		ft_atoi(const char *str);
 int		ft_toupper(int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t size);
 int		ft_memcmp(const void *str1, const void *str2, size_t size);

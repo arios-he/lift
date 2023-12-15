@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arios-he <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 14:09:38 by arios-he          #+#    #+#             */
-/*   Updated: 2023/12/15 17:07:40 by arios-he         ###   ########.fr       */
+/*   Created: 2023/12/15 20:11:49 by arios-he          #+#    #+#             */
+/*   Updated: 2023/12/15 20:27:09 by arios-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *serch, size_t len)
+int	ft_atoi(const char *str)
 {
-	size_t	need_l;
+	int	result;
+	int	sing;
 
-	need_l = ft_strlen(serch);
-	if (need_l == '\0')
-		return ((char *)str);
-	need_l = ft_strlen(serch);
-	while (*str && len-- >= need_l)
+	sing = 1;
+	result = 0;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (*str == *serch && strncmp (str, serch, need_l) == 0)
-			return ((char *)str);
+		if (*str == '-')
+			sing = -1;
 		str++;
 	}
-	return (NULL);
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sing);
 }
